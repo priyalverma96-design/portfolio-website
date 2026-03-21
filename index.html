@@ -601,7 +601,23 @@
     flex-shrink: 0;
   }
   .badge-cnn { background: #c00; color: white; }
-  .badge-wion { background: #1a1a6e; color: #fff; }
+  .badge-wion {
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.company-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 4px;
+}
   .exp-company {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
@@ -1592,7 +1608,8 @@
 
     <div class="exp-card reveal reveal-delay-2">
       <div class="exp-logo-area">
-        <div class="exp-logo-badge badge-wion">WION</div>
+        <div class="exp-logo-badge badge-wion">
+  <img src="wion-logo.png" alt="WION logo" class="company-logo-img"></div>
         <div>
           <div class="exp-company">WION</div>
           <div class="exp-role">Trainee Journalist</div>
