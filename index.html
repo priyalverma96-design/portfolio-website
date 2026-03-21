@@ -22,7 +22,10 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
   body {
     font-family: 'DM Sans', sans-serif;
@@ -1383,25 +1386,285 @@
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
-    nav { padding: 1rem 2rem; }
-    #hero { grid-template-columns: 1fr; padding: 6rem 2rem 4rem; text-align: center; }
-    .hero-eyebrow { justify-content: center; }
-    .hero-ctas { justify-content: center; }
-    .hero-tags { justify-content: center; }
-    .hero-title { margin: 0 auto 2rem; }
-    .hero-visual { display: none; }
-    .about-grid, .skills-layout { grid-template-columns: 1fr; gap: 3rem; }
-    .about-left { position: static; }
-    .skills-left { position: static; }
-    .experience-grid { grid-template-columns: 1fr; }
-    .case-studies-grid, .video-grid, .blog-grid, .experiments-grid, .achieve-grid, .certs-grid { grid-template-columns: 1fr 1fr; }
-    section { padding-left: 2rem !important; padding-right: 2rem !important; }
-    .nav-links { display: none; }
+  nav {
+    padding: 1rem 1.25rem;
   }
-  @media (max-width: 640px) {
-    .case-studies-grid, .video-grid, .blog-grid, .experiments-grid, .achieve-grid, .certs-grid { grid-template-columns: 1fr; }
-    .hero-stats { display: none; }
+
+  #hero {
+    grid-template-columns: 1fr;
+    padding: 6.5rem 1.25rem 3rem;
+    text-align: center;
+    gap: 2rem;
+    min-height: auto;
   }
+
+  .hero-bg-text {
+    display: none;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero-visual {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .photo-frame {
+    width: min(78vw, 320px);
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero-eyebrow,
+  .hero-tags,
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-title {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+  }
+
+  .hero-stats {
+    display: none;
+  }
+
+  .about-grid,
+  .skills-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-left,
+  .skills-left {
+    position: static;
+  }
+
+  .experience-grid,
+  .case-studies-grid,
+  .video-grid,
+  .blog-grid,
+  .experiments-grid,
+  .achieve-grid,
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    display: block;
+    margin-bottom: 2.5rem;
+  }
+
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .project-tabs {
+    gap: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .project-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    cursor: auto;
+  }
+
+  .cursor,
+  .cursor-follower,
+  .scroll-hint {
+    display: none;
+  }
+
+  nav {
+    padding: 0.9rem 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.05rem;
+  }
+
+  #hero,
+  #about,
+  #experience,
+  #projects,
+  #experiments,
+  #achievements,
+  #skills,
+  #certifications,
+  #contact {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #hero {
+    padding-top: 6rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 1.05;
+  }
+
+  .about-lead {
+    font-size: 1.2rem;
+    line-height: 1.45;
+  }
+
+  .contact-title {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .about-number {
+    font-size: 5rem;
+    margin-bottom: -1rem;
+  }
+
+  .case-number {
+    font-size: 3rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .hero-title,
+  .about-body,
+  .thread-text,
+  .case-body,
+  .exp-exp-body,
+  .contact-subtitle,
+  .exp-bullets li,
+  .blog-title,
+  .video-title {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .exp-card,
+  .case-card,
+  .exp-experiment,
+  .cert-card,
+  .blog-card,
+  .video-info {
+    padding: 1.4rem;
+  }
+
+  .case-result-highlight {
+    padding: 0.8rem 0.9rem;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .hero-tags,
+  .case-tags,
+  .skill-tags {
+    gap: 0.45rem;
+  }
+
+  .hero-tag,
+  .tag-item,
+  .skill-tag {
+    font-size: 0.68rem;
+    padding: 0.38rem 0.75rem;
+  }
+
+  .exp-logo-area {
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .exp-logo-badge {
+    width: 46px;
+    height: 46px;
+  }
+
+  .exp-company {
+    font-size: 1.3rem;
+  }
+
+  .exp-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .case-title,
+  .exp-exp-title {
+    font-size: 1.45rem;
+  }
+
+  .contact-links {
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-link-value {
+    font-size: 0.76rem;
+    text-align: center;
+  }
+
+  .contact-email {
+    font-size: 1.05rem;
+    word-break: break-word;
+  }
+
+  .case-card:hover,
+  .exp-card:hover,
+  .video-card:hover,
+  .blog-card:hover,
+  .cert-card:hover,
+  .achieve-card:hover,
+  .exp-experiment:hover {
+    transform: none;
+  }
+
+  footer {
+    padding: 1.2rem 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  footer p,
+  footer .footer-links a {
+    font-size: 0.64rem;
+  }
+
+  footer .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 </style>
 </head>
 <body>
